@@ -1,0 +1,328 @@
+:root {
+    --bg: #f3f7fb;
+    --card: #ffffff;
+    --muted: #5f6b7a;
+    --text: #1f2a37;
+    --ok: #1e9e5a;
+    --danger: #d94141;
+    --dark: #1f2a37;
+    --border: #d9e2ec;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 1.6;
+    background: radial-gradient(circle at top right, #e7f8ff, var(--bg));
+    color: var(--text);
+    padding: 0 14px;
+}
+
+h1 { margin-bottom: 8px; }
+
+.hint {
+    margin-top: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+/* --- Status card --- */
+#status {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+    min-height: 1.3em;
+}
+
+.status-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 10px rgba(31, 42, 55, 0.04);
+}
+
+.progress-track {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: #e6eef7;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #2a77f0, #4fa3ff);
+    transition: width 180ms ease-out;
+    will-change: width;
+}
+
+#deviceInfo {
+    margin-top: 8px;
+    font-size: 0.84rem;
+    color: var(--muted);
+}
+
+/* --- Editor card --- */
+.editor-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(31, 42, 55, 0.04);
+    overflow: hidden;
+}
+
+.editor-toolbar {
+    border-bottom: 1px solid var(--border);
+    background: #f7fbff;
+    padding: 0;
+}
+
+.editor-format-actions {
+    display: flex;
+    gap: 4px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.editor-format-actions button {
+    min-height: 34px;
+    min-width: 34px;
+    padding: 5px 9px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.editor-format-actions button:hover {
+    background: #e8f0fe;
+    border-color: #9dbfea;
+}
+
+.editor-format-actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.editor-format-actions button.is-active {
+    background: #2a77f0;
+    color: #fff;
+    border-color: #2a77f0;
+}
+
+.toolbar-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+}
+
+.toolbar-text-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.1rem;
+}
+
+.toolbar-text-label--bold {
+    font-weight: 800;
+}
+
+.toolbar-text-label--italic {
+    font-style: italic;
+}
+
+.toolbar-text-label--strike {
+    text-decoration: line-through;
+}
+
+.toolbar-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    margin: 0 4px;
+}
+
+.editor-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    flex-wrap: wrap;
+}
+
+.editor-meta {
+    color: var(--muted);
+    font-size: 0.84rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.editor-actions button {
+    min-height: 34px;
+    padding: 6px 10px;
+    font-weight: 600;
+    border: 1px solid #bfd0e4;
+    background: #fff;
+    color: #17365a;
+}
+
+#copyBtn { border-color: #7fb1ff; color: #114a9a; }
+
+#outputEditor {
+    width: 100%;
+    min-height: 240px;
+    border: 0;
+    outline: none;
+    background: #fff;
+}
+
+#outputEditor .tiptap {
+    padding: 14px;
+    min-height: 240px;
+    outline: none;
+    font: 400 15px/1.7 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172331;
+}
+
+#outputEditor .tiptap p { margin: 0 0 0.5em; }
+#outputEditor .tiptap h1 { font-size: 1.6em; margin: 0.6em 0 0.3em; }
+#outputEditor .tiptap h2 { font-size: 1.3em; margin: 0.5em 0 0.25em; }
+#outputEditor .tiptap h3 { font-size: 1.1em; margin: 0.4em 0 0.2em; }
+#outputEditor .tiptap ul,
+#outputEditor .tiptap ol { padding-left: 1.4em; margin: 0.4em 0; }
+#outputEditor .tiptap hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 1rem 0;
+}
+#outputEditor .tiptap blockquote {
+    border-left: 3px solid var(--border);
+    padding-left: 12px;
+    margin: 0.5em 0;
+    color: var(--muted);
+}
+#outputEditor .tiptap [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+#outputEditor .tiptap pre {
+    background: #1f2a37;
+    color: #e2e8f0;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
+}
+#outputEditor .tiptap code {
+    background: #edf2f7;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+#outputEditor .tiptap p.is-editor-empty:first-child::before {
+    content: 'Your transcribed and formatted text will appear here...';
+    color: var(--muted);
+    float: left;
+    pointer-events: none;
+    height: 0;
+}
+
+/* --- Model settings grid --- */
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.field {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.field label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.field select,
+.field input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    font: inherit;
+    background: #fff;
+    color: var(--text);
+}
+
+/* --- Controls --- */
+.controls {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    min-height: 42px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+#loadBtn { background: var(--ok); color: white; }
+#recordBtn { background: var(--danger); color: white; }
+#recordBtn.recording { background: var(--dark); animation: pulse 1.4s infinite; }
+#clearBtn { background: #dfe7f2; color: #1d324f; }
+#speakBtn { background: #2a77f0; color: #fff; }
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.55; }
+    100% { opacity: 1; }
+}
+
+@media (max-width: 700px) {
+    body { margin: 12px auto; }
+    button { flex: 1 1 calc(50% - 10px); }
+}
